@@ -53,4 +53,10 @@ ytest=[testlabelsLabel1;testlabelsLabel2];
 
 xtest=im2double(xtest);
 ytest=im2double(ytest);
+% Replace labels a with -1 and labels b with 1
+ytrain(ytrain == a) = -1;
+ytrain(ytrain == b) = 1;
+
+ytest(ytest == a) = -1;
+ytest(ytest == b) = 1;
 end
