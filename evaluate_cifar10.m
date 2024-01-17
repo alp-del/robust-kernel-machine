@@ -35,12 +35,20 @@ err1
 %no augmentation
 error=zeros(12,1);
 kernel_train=find_kernel(trainx,trainx,sigma);
+
 for l= 1:length(reg)
-    
     kernelinv=inv(kernel_train+size(kernel_train,1)*reg(l)*eye(size(kernel_train,1)));
-    kerneltest=find_kernel(trainx,testx,sigma);
-    predy2=kerneltest'*(kernelinv*trainy);
-    error(l)=mean((predy2-testy).^2);
+    error2=zeros(10,1);
+    for i = 1:10
+        n3=randn(size(testx));
+        xtest=testx+delta*n3;
+    
+        
+        kerneltest=find_kernel(trainx,xtest,sigma);
+        predy2=kerneltest'*(kernelinv*trainy);
+        error2(i)=mean((predy2-testy).^2);
+    end
+    error(l)=max(error2)
 end
 error
 
