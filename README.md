@@ -1,2 +1,2 @@
 # robust-kernel-machine
-We want to find how to design a robust kernel machine/ adversarial kernel machine.
+Numerical simulations of 	arXiv:2304.06326
